@@ -12,6 +12,7 @@
     "vite": "^6.2.3"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "bootstrap": "^5.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
