@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BsCheckCircle } from "react-icons/bs";
 import "./app.css";
-import "./style.css";
+import "./style.css"; 
 
 // Sample user data with profile images
 const users = {
@@ -13,64 +12,92 @@ const users = {
 };
 
 const ChatBox = () => {
-  const [messages, setMessages] = useState([
-    { id: 1, name: "John", text: "Hello, I'm John. How can I help you today?", time: "08:55" },
-    { id: 2, name: "Sam", text: "Hi John, I need more information about the Developer Plan.", time: "08:56" },
-    { id: 3, name: "John", text: "Are we meeting today? Project has been already finished and I have results to show you.", time: "08:57" },
-    { id: 4, name: "Joyse", text: "Well, I am not sure. I have results to show you.", time: "08:59" },
-    { id: 5, name: "John", text: "The rest of the team is not here yet. Maybe in an hour or so?", time: "08:57" },
-    { id: 6, name: "Jin", text: "Have you faced any problems at the last phase of the project?", time: "08:59" },
-    { id: 7, name: "John", text: "Actually, everything was fine. I’m very excited to show this to our team.", time: "07:00" },
-  ]);
-
   const [newMessage, setNewMessage] = useState("");
-
-  const sendMessage = () => {
-    if (newMessage.trim() === "") return;
-
-    const newMsg = {
-      id: messages.length + 1,
-      name: "Sam", // Hardcoded sender for now
-      text: newMessage,
-      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    };
-
-    setMessages([...messages, newMsg]);
-    setNewMessage("");
-  };
 
   return (
     <div className="chat-container">
       <h5 className="text-left border-bottom pb-2">Project Communications</h5>
       <ul className="chat-box chatContainerScroll">
-        {messages.map((msg) => (
-          <li key={msg.id} className={`chat-message chat-text d-flex mb-3 ${msg.name === "John" ? "chat-left" : "chat-right"}`}>
-            {msg.name === "John" && (
-              <div className="chat-avatar">
-                <img src={users[msg.name]} alt={msg.name} className="chat-avatar" />
-                <div className="chat-name">{msg.name}</div>
-              </div>
-            )}
-
-            <div className={`chat-text ${msg.name === "John" ? "chat-text" : "chat-text-right"}`}>
-              <p className="chat-text">{msg.text}</p>
-              
-            </div>
-<div>
+      <li className="chat-left">
+        <div className="chat-avatar">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John's Avatar" className="avatar avatar-sm" />
+          <div className="chat-name">John</div>
+        </div>
+        <div className="chat-text">
+          Hello, I'm John.
+          <br />
+          How can I help you today?
+        </div>
+        <div className="chat-hour">
+          08:55 <span className="fa fa-check-circle px-1" aria-hidden="true"></span>
+        </div>
+      </li>
+      
+      <li class="chat-right">
+  <div class="chat-hour">08:56 <span class="fa fa-check-circle px-1" aria-hidden="true"></span></div>
+  <div class="chat-text">Hi, John<br /> I need more information about Developer Plan.</div>
+  <div class="chat-avatar">
+    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin" />
+    <div class="chat-name">Sam</div>
+  </div>
+</li>
 <li className="chat-left">
-              <span className="chat-hour">
-                {msg.time} <BsCheckCircle className="text-success ms-1" />
-              </span>
-              </li>
-</div>
-            {msg.name !== "John" && (
-              <div className="chat-avatar">
-                <img src={users[msg.name]} alt={msg.name} className="chat-avatar" />
-                <div className="chat-name">{msg.name}</div>
-              </div>
-            )}
-          </li>
-        ))}
+        <div className="chat-avatar">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John's Avatar" className="avatar avatar-sm" />
+          <div className="chat-name">John</div>
+        </div>
+        <div className="chat-text">
+        Are we meeting today?
+          <br />
+          Project has been already finished and I have results to show you.                      
+        </div>
+        <div className="chat-hour">
+          08:57 <span className="fa fa-check-circle px-1" aria-hidden="true"></span>
+        </div>
+      </li> 
+      <li class="chat-right">
+  <div class="chat-hour">08:59 <span class="fa fa-check-circle px-1" aria-hidden="true"></span></div>
+  <div class="chat-text">Well I am not sure.
+  <br />I have results to show you.</div>
+  <div class="chat-avatar">
+    <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Retail Admin" />
+    <div class="chat-name">Joyse</div>
+  </div>
+</li>
+<li className="chat-left">
+        <div className="chat-avatar">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John's Avatar" className="avatar avatar-sm" />
+          <div className="chat-name">John</div>
+        </div>
+        <div className="chat-text">
+        The rest of the team is not here yet.
+        <br />Maybe in an hour or so?
+        </div>
+        <div className="chat-hour">
+          08:57 <span className="fa fa-check-circle px-1" aria-hidden="true"></span>
+        </div>
+      </li> 
+      <li class="chat-right">
+  <div class="chat-hour">08:59 <span class="fa fa-check-circle px-1" aria-hidden="true"></span></div>
+  <div class="chat-text">Have you faced any problems at the last phase of the project?</div>
+  <div class="chat-avatar">
+    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Retail Admin" />
+    <div class="chat-name">Jin</div>
+  </div>
+</li>
+<li className="chat-left">
+        <div className="chat-avatar">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John's Avatar" className="avatar avatar-sm" />
+          <div className="chat-name">John</div>
+        </div>
+        <div className="chat-text">
+        Actually everything was fine.
+        <br />I'm very excited to show this to our team.
+        </div>
+        <div className="chat-hour">
+          07:00 <span className="fa fa-check-circle px-1" aria-hidden="true"></span>
+        </div>
+      </li> 
       </ul>
       <div className="form-group mt-3">
         <textarea
