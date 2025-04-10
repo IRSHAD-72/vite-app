@@ -316,8 +316,8 @@ body{margin-top:20px;}
 
 .chat-container {
     position: relative;
-    width: 200vh;
-    max-width: 100%; /* or a specific max-width like 1440px if needed */
+    width: 100%;
+    max-width: 1440px; /* or a specific max-width like 1440px if needed */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -428,18 +428,7 @@ body{margin-top:20px;}
     margin: 0 15px 0 0;
 }
 
-@media (max-width: 724px) {
-    .chat-container {
-        width: 100%;
-        max-width: 100vh;
-        height: 100vh;
-        padding: 0;
-        overflow: hidden;
-    }
-    .chat-container li {
-        padding: 0 10px;
-        margin: 0;
-    }
+@media (max-width: 767px) {
     .chat-container li.chat-left,
     .chat-container li.chat-right {
         flex-direction: column;
