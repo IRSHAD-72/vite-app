@@ -316,15 +316,16 @@ body{margin-top:20px;}
 
 .chat-container {
     position: relative;
-   width: auto;
-  overflow-y: "auto";
-  max-width: 100%;
-  height: 100vh; /* Full height */
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  overflow: hidden;
-}
+    width: 200vh;
+    max-width: 100%; /* or a specific max-width like 1440px if needed */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  
 
 .chat-container li.chat-left,
 .chat-container li.chat-right {
@@ -338,6 +339,7 @@ body{margin-top:20px;}
 
     list-style: none;
     padding-left: 0;
+    width: 100%;
     height: 100%;
     overflow-y: auto; /* To make the chat scrollable */
     flex-grow: 1;
@@ -426,7 +428,18 @@ body{margin-top:20px;}
     margin: 0 15px 0 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 724px) {
+    .chat-container {
+        width: 100%;
+        max-width: 100vh;
+        height: 100vh;
+        padding: 0;
+        overflow: hidden;
+    }
+    .chat-container li {
+        padding: 0 10px;
+        margin: 0;
+    }
     .chat-container li.chat-left,
     .chat-container li.chat-right {
         flex-direction: column;
